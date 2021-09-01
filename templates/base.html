@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+  <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+
+    <div class="d-flex  flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width:100%;">
+            <a class='navbar-brand mx-auto' href='#'><h5 class="my-0 mr-md-auto font-weight-normal">URL Shortener</h5></a>
+            <div class="mx-auto">
+                <a class="btn btn-outline-info m-3" href="{{ url_for('session_api') }}">API</a>
+                <a class="btn btn-outline-primary m-3" href="{{ url_for('index') }}">New URL</a>
+            </div>
+        </nav>
+    </div>
+
+
+  {% for message in get_flashed_messages() %}
+    <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+        <div class="p-3 mb-2 bg-danger text-white">{{ message }}</div>
+    </div>
+    <br>
+  {% endfor %}
+
+
+  {% block main %}{% endblock %}
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+
+</html>
